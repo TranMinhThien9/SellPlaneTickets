@@ -1,0 +1,17 @@
+
+.register-1 {
+    background-color: #fff;
+    text-align: center;
+}
+
+.register-1 a {
+    color: #000;
+    display: block; 
+    padding: 10px;
+    text-decoration: none;
+}
+
+.information p{
+    color: #fff; 
+    font-size: 16px
+}

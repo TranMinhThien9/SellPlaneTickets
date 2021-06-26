@@ -1,0 +1,136 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Đăng kí</title>
+{% endblock %}
+
+{% block body %}
+  <!--header start here-->
+  <div class="header">
+    <div class="header-main">
+      <h1>HỆ THỐNG BÁN VÉ MÁY BAY</h1>
+      <div class="header-bottom">
+        <div class="header-right w3agile">
+          <div class="header-left-bottom agileinfo">
+            <form action="{% url 'register' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group row">
+                <label for="user" class="col-sm-3 col-form-label text-white">Tên đăng nhập</label>
+                <div class="col-sm-9">
+                  <input type="text" name="username" class="form-control" id="user" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'Tên đăng nhập';}" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword4" class="col-sm-3 col-form-label text-white">Mật khẩu</label>
+                <div class="col-sm-9">
+                  <input type="password" value="Password" name="password" onfocus="this.value = '';" id="inputPassword4"
+                    onblur="if (this.value == '') {this.value = 'Mật khẩu';}" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPassword5" class="col-sm-3 col-form-label text-white">Xác nhận mật khẩu</label>
+                <div class="col-sm-9">
+                  <input type="password" value="Password" name="password" id="inputPassword5" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'Mật khẩu';}" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="first_name" class="col-sm-3 col-form-label text-white" >Tên</label>
+                <div class="col-sm-9">
+                  <input type="text" name="first_name" id="first_name"/>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="last_name" class="col-sm-3 col-form-label text-white" >Họ</label>
+                <div class="col-sm-9">
+                  <input type="text" name="last_name" id="last_name"/>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="CMND" class="col-sm-3 col-form-label text-white" >CMND</label>
+                <div class="col-sm-9">
+                  <input type="text" name="id_number" id="CMND" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'CMND';}" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="SDT" class="col-sm-3 col-form-label text-white" >Số điện thoại</label>
+                <div class="col-sm-9">
+                  <input type="text" name="phone_number" id="SDT" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'Số điện thoại';}" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="Email" class="col-sm-3 col-form-label text-white" >Email</label>
+                <div class="col-sm-9">
+                  <input type="email" name="email" id="Email" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'Email';}" />
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label for="sex" class="col-sm-3 col-form-label text-white" >Giới tính</label>
+                <div class="col-sm-9">
+                  <select name="sex" id="sex">
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="birthday" class="col-sm-3 col-form-label text-white" >Ngày sinh:</label>
+                <div class="col-sm-9">
+                  <input type="date" id="birthday" name="birthday">
+                </div>
+              </div>
+
+              <div class="remember">
+                <span class="checkbox1">
+                  <label class="checkbox">
+                    <input type="checkbox" name="" checked="">
+                    <i></i>Remember me
+                  </label>
+                </span>
+                <div class="forgot">
+                  <h6>
+                    <a href="#">Forgot Password?</a>
+                  </h6>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <input type="submit" value="Đăng ký">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--header end here-->
+  <div class="copyright">
+    <p>© 2016 Classy Login Form. All rights reserved | Design by
+      <a href="http://w3layouts.com/" target="_blank">
+        W3layouts </a>
+    </p>
+  </div>
+  <!--footer end here-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+{% endblock %}

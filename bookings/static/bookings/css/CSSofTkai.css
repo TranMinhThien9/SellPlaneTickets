@@ -1,0 +1,27 @@
+.register{
+    background: #559ad3;
+    color: #FFF;
+    font-size: 26px;
+    padding: 0.3em 1.2em;
+    width: 100%;
+    font-weight: 500;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+.register:hover {
+    background: #1c649e;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+

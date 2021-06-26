@@ -1,0 +1,87 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Tra cứu</title>
+{% endblock %}
+
+{% block body %}
+  <!--header start here-->
+  <div class="header">
+    <div class="header-main">
+        <h1>Tra cứu chuyến bay</h1>
+      <div class="header-bottom">
+        <div class="header-right w3agile">
+          <div class="header-left-bottom agileinfo">
+          
+            <div class="container">
+              <div class="row justify-content-end">
+                <div class="col-4">
+                  <a href="{% url 'logout' %}">
+                    <button type="button" class="btn btn-danger mb-4">
+                      Đăng xuất
+                    </button>
+                  </a>
+                </div>
+              </div>
+
+                <div class="col-8">
+                  <table class="table table-bordered table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="rowgroup" colspan="5" class="text-center">CHUYENBAY</th>
+                      </tr>
+                      <tr>
+                        <th scope="col">MACB</th>
+                        <th scope="col">SBDI</th>
+                        <th scope="col">SBDEN</th>
+                        <th scope="col">GIODI</th>
+                        <th scope="col">GIODEN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for flight in flights %}
+                      <tr>
+                        <th scope="row">{{flight.id}}</th>
+                        <td>{{flight.departure_code}}</td>
+                        <td>{{flight.arrival_code}}</td>
+                        <td>{{flight.departure_time}}</td>
+                        <td>{{flight.arrival_time}}</td>
+                      </tr>
+                      {% endfor %}
+                      
+                      
+                    </tbody>
+                  </table>  
+
+                </div>
+                <div class="col">
+                  <a href="{% url 'index' %}">
+                    <button type="button" class="btn btn-danger mt-3">
+                      Trở về
+                    </button>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+            
+
+            
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+{% endblock %}
