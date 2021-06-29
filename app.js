@@ -50,6 +50,9 @@ app.get('/login', function (req, res) {
 app.use('/admin', require('./routes/admin.route'));
 
 
+require('./middlewares/routes.mdw')(app);
+
+
 
 const PORT = 3000
 app.listen(PORT, _ => {
