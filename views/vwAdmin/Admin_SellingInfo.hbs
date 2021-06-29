@@ -1,11 +1,11 @@
-{% extends 'bookings/base.html' %}
+{{!-- {% extends 'bookings/base.html' %}
 {% load static %}
 
 {% block title %}
   <title>Thông tin vé</title>
 {% endblock %}
 
-{% block body %}
+{% block body %} --}}
   <!--header start here-->
   <div class="header">
     <div class="header-main">
@@ -44,13 +44,13 @@
 
             </div>
             <div class="row justify-content-between">
-              <a href="{% url 'index' %}">
+              <a href="/index">
                 <button type="button" class="btn btn-danger mt-3">
                   Trở về
                 </button>
               </a>
 
-              <a href="{% url 'index' %}">
+              <a href="/index">
                 <button type="button" class="btn btn-danger mt-3 ml-5">
                   Bán
                 </button>
@@ -78,4 +78,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-{% endblock %}
+{{!-- {% endblock %} --}}

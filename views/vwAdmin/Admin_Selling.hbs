@@ -18,8 +18,6 @@
             <div class="container">
               <div class="row justify-content-end">
                 <div class="col-2">
-                  <a href="/user/registeredconference" class="btn btn-outline-primary my-2">Xem thông tin chi tiết hội nghị</a>
-
                   <a href="{% url 'logout' %}">
                     <button type="button" class="btn btn-danger mb-4">
                       Đăng xuất
@@ -29,8 +27,8 @@
               </div>
               
                 <div class="col">
-                  <form action="{% url 'adminselling' %}" method="post">
-                    {% csrf_token %}
+                  <form action= "/admin/AdminSelling" method="post">
+                    {{!-- {% csrf_token %} --}}
                       <div class="col text-white text-center font-italic mb-5" style="font-size: 25px;"><u>Bán vé máy bay</u></div>                      
                       
                       <div class="form-group row">
@@ -55,7 +53,7 @@
 
                 </div>
                 <div class="row justify-content-between">
-                  <a href="{% url 'index' %}">
+                  <a href="/index">
                     <button type="button" class="btn btn-danger mt-3">
                       Trở về
                     </button>

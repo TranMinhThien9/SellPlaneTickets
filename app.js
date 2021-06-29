@@ -47,7 +47,8 @@ app.get('/login', function (req, res) {
 // })
 
 
-app.use('/admin', require('./routes/admin.route'));
+// app.use('/admin', require('./routes/admin.route'));
+app.use('/public', express.static('public'));
 
 
 require('./middlewares/routes.mdw')(app);
