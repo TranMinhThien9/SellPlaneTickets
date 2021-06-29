@@ -1,0 +1,97 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Kết quả tra cứu</title>
+{% endblock %}
+
+{% block body %}
+<!--header start here-->
+<div class="header">
+  <div class="header-main">
+    <h1>Kết quả tra cứu</h1>
+    <div class="header-bottom">
+      <div class="header-right w3agile">
+        <div class="header-left-bottom agileinfo">
+
+
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-4">
+                <a href="{% url 'logout' %}">
+                  <button type="button" class="btn btn-danger mb-4">
+                    Đăng xuất
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="col-10">
+              {% if flights %}
+              <table class="table table-bordered table-dark">
+                <thead>
+                  <tr>
+                    <th scope="rowgroup" colspan="5" class="text-center">CHUYENBAY</th>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="text-center">Thông tin về CB</th>
+                    <th scope="col" class="text-center">Giờ đi</th>
+                    <th scope="col" class="text-center">Giờ đến</th>
+                    <th scope="col" class="text-center">Tổng số lượng ghế</th>
+                    <th scope="col" class="text-center">Số ghế hạng nhất</th>
+                    <th scope="col" class="text-center">Số ghế trống hạng nhất</th>
+                    <th scope="col" class="text-center">Số ghế hạng phổ thông</th>
+                    <th scope="col" class="text-center">Số ghế trống hạng phổ thông</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for flight in flights %}
+                  <tr>
+                    <th scope="row" class="text-center">{{flight.id}}({{flight.departure_code}} ->
+                      {{flight.arrival_code}})</th>
+                    <td class="text-center">{{flight.departure_time}}</td>
+                    <td class="text-center">{{flight.arrival_time}}</td>
+                    <td class="text-center">{{flight.num_of_seats}}</td>
+                    <td class="text-center">{{flight.num_of_fc_seats}}</td>
+                    <td class="text-center">{{flight.num_of_empty_fc_seats}}</td>
+                    <td class="text-center">{{flight.num_of_eco_seats}}</td>
+                    <td class="text-center">{{flight.num_of_empty_eco_seats}}</td>
+                    <td style="color:cornflowerblue" class="text-center"><a href="{% url 'flight' flight.id %}">Chi tiết</a></td>
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+              {% else %}
+              <h3 style="color: #fff">Không có chuyến bay nào phù hợp.</h3>
+              {% endif %}
+
+            </div>
+
+
+            <div class="row justify-content-between">
+              <div class="col-4"></div>
+              <div class="col-4">
+                <div class="col">
+                  <a href="{% url 'customersearching' %}">
+                    <button type="button" class="btn btn-danger mt-5">
+                      Trở về
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+{% endblock %}
