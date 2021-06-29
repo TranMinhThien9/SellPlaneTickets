@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
+require('express-async-errors');
 
 
 const app = express();
@@ -21,22 +22,22 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/login', function (req, res) {
-    res.render('login', {
-        layout: false
-    });
-});
+// app.get('/login', function (req, res) {
+//     res.render('login', {
+//         layout: false
+//     });
+// });
 
 // app.listen(3000);
-app.get('/login', function (req, res) {
-// Dùng để ẩn một thành phần trong 1 trang html sử dụng hide
-// Đặt khối cần ẩn vào {{#if condition}} {{/if}}
-    const show = +req.query.show || 0;
-    res.render('login', {
-        layout: false,
-        data: {visible: show !== 0}
-    });
-});
+// app.get('/login', function (req, res) {
+// // Dùng để ẩn một thành phần trong 1 trang html sử dụng hide
+// // Đặt khối cần ẩn vào {{#if condition}} {{/if}}
+//     const show = +req.query.show || 0;
+//     res.render('login', {
+//         layout: false,
+//         data: {visible: show !== 0}
+//     });
+// });
 
 // app.get('/', function (req, res) {
 //   res.send('Hello World!')
@@ -52,6 +53,8 @@ app.use('/public', express.static('public'));
 
 
 require('./middlewares/routes.mdw')(app);
+require('./middlewares/error.mdw')(app);
+
 
 
 

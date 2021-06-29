@@ -1,16 +1,15 @@
 const express = require('express');
+const adminModel = require('../models/admin.model');
+
+// const db = require('../utils/db');
+
 
 const router = express.Router();
-
-
-
-
 
 
 // const bodyParser = require('body-parser');
 // const casual = require('casual');
 
-// const adminModel = require('../models/admin.model');
 
 
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });

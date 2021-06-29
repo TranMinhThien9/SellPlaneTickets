@@ -1,5 +1,3 @@
-
-
 module.exports = function (app) {
     app.get('/', function (req, res) {
         res.render('home');
@@ -10,8 +8,8 @@ module.exports = function (app) {
             layout: false
         })
     });
-    app.get('/signup', function (req, res) {
-        res.render('vwLogInSignUpForgotPassword/signup', {
+    app.get('/register', function (req, res) {
+        res.render('vwLogInSignUpForgotPassword/register', {
             layout: false
         })
     });
