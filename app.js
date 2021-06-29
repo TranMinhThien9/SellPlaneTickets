@@ -46,6 +46,11 @@ app.get('/login', function (req, res) {
 //     res.sendFile(`${__dirname}/login.html`);
 // })
 
+
+app.use('/admin', require('./routes/admin.route'));
+
+
+
 const PORT = 3000
 app.listen(PORT, _ => {
   console.log(`Example app listening at http://localhost:${PORT}`)
