@@ -1,33 +1,10 @@
 const express = require('express');
-const exphbs  = require('express-handlebars');
+// const hbs_sections = require('express-handlebars-sections');
+
+
 require('express-async-errors');
 
-
 const app = express();
-
-app.engine('hbs', exphbs({
-    defaultLayout: 'main.hbs',
-    extname: '.hbs',
-    layoutsDir: 'views/_layouts',
-    partialsDir: 'views/_partials'
-}));
-app.set('view engine', 'hbs');
-
-
-
-
-
-app.get('/', function (req, res) {
-    res.render('home');
-});
-
-
-// app.get('/login', function (req, res) {
-//     res.render('login', {
-//         layout: false
-//     });
-// });
-
 // app.listen(3000);
 // app.get('/login', function (req, res) {
 // // Dùng để ẩn một thành phần trong 1 trang html sử dụng hide
@@ -39,19 +16,17 @@ app.get('/', function (req, res) {
 //     });
 // });
 
-// app.get('/', function (req, res) {
-//   res.send('Hello World!')
-// })
 
 // app.get('/login', function (req, res) {
 //     res.sendFile(`${__dirname}/login.html`);
 // })
-
+app.use(express.json()); //For JSON requests
+app.use(express.urlencoded({extended: true}));
 
 // app.use('/admin', require('./routes/admin.route'));
 app.use('/public', express.static('public'));
 
-
+require('./middlewares/view.mdw')(app);
 require('./middlewares/routes.mdw')(app);
 require('./middlewares/error.mdw')(app);
 

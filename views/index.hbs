@@ -15,7 +15,7 @@
 
 				<div class="header-left-bottom agileinfo">
 
-					<form action="{% url 'login' %}" method="post">
+					<form action="/login" method="post">
 						{% csrf_token %}
 						<input type="text" name="username" value="User name" name="name" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'User name';}" />
