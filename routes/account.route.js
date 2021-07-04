@@ -39,7 +39,7 @@ router.post('/login', async function (req, res) {
   req.session.permission = user.permission;
   // const permission = user.permission;
 
-  if (user.permission) {
+  if (user.permission === 1) {
     let url = '/admin';
     // console.log('tai account.route: isAuth, isAdmin, authUser', req.session.isAuth,req.session.isAdmin,req.session.authUser);
     res.redirect(url);
@@ -57,7 +57,9 @@ router.post('/login', async function (req, res) {
 router.post('/logout', async function (req, res) {
   req.session.isAuth = false;
   req.session.authUser = null;
+  req.session.permission = 0;
   // res.redirect(req.headers.referer);
+  req.session.destroy();
   res.redirect('/account/login');
 })
 

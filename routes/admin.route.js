@@ -55,7 +55,6 @@ const admin = require('../middlewares/admin.mdw');
 
 // view admin
 router.get('/', admin, async function(req, res) {
-    console.log('tai account.route: isAuth, isAdmin, authUser', req.session.isAuth,req.session.isAdmin,req.session.authUser);
     res.render('vwAdmin/Admin_LoginSucessfully');
 });
 router.get('/AdminSearching', admin, async function(req, res) {

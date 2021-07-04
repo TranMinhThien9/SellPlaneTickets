@@ -7,7 +7,7 @@ const express = require('express');
 
 // const userModel = require('../models/user.model');
 // const middleware = require('../middlewares/middleware');
-const customer = require('../middlewares/customer.mdw.js');
+const customer = require('../middlewares/customer.mdw');
 
 const router = express.Router();
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -133,7 +133,7 @@ const router = express.Router();
 //     return bcrypt.compareSync(password, passwordHash.password);
 // }
 router.get('/', customer,  async function (req, res) {
-    console.log('tai account.route: isAuth, authUser',req.session.isAuth, req.session.authUser);
+    // console.log('tai account.route: isAuth, authUser',req.session.isAuth, req.session.authUser);
     res.render('vwCustomer/Customer_LoginSucessfully');
 })
 

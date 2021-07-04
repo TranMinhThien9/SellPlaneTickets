@@ -38,10 +38,10 @@ module.exports = function (app) {
     // app.use(cookieParser());
     // app.use(express.static(path.join(__dirname, 'public')));
 
-
+    
+    app.use('/account', require('../routes/account.route'));
     app.use('/admin', require('../routes/admin.route'));
     app.use('/customer', require('../routes/customer.route'));
-    app.use('/account', require('../routes/account.route'));
     // app.use('/auth', require('../routes/auth.route'));
     // app.use('/conference', require('../routes/conference.route'));
     // app.use('/conference-participant', require('../routes/conferenceParticipant.route'));

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg shadow-lg navbar-dark fixed-top" style="background-color: #004475;">
   <div class="container-fluid">
-    <form id="frmLogout" method="POST" action="/account/logout"></form>
-    <ul class="col-sm-4 d-flex justify-content-end navbar-nav mb-2 mb-lg-0" id="ulNav">
+    <form id="formLogout" method="POST" action="/account/logout"></form>
+    <ul class="col d-flex justify-content-end navbar-nav mb-2 mb-lg-0 " id="ulNav">
       {{#if isAuth}}
-        <li class="nav-item dropdown">
+        <li class="col-2 nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -16,17 +16,23 @@
                 Xem và chỉnh sửa thông tin cá nhân
               </a>
             </li>
-            <li>
+            {{!-- <li>
               <hr class="dropdown-divider">
-            </li>
-            <li>
+            </li> --}}
+            {{!-- <li>
               <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                 Đăng xuất
               </a>
-            </li>
+            </li> --}}
           </ul>
-        </li>        
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-danger" href="javascript: $('#formLogout').submit();">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Đăng xuất
+          </a>
+        </li>      
       {{else}}
         <li class="nav-item active">
           <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/account/login">
