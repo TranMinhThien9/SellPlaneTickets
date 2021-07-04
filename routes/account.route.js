@@ -76,7 +76,7 @@ router.post('/register', async function(req,res){
   console.log("Tại account.route",req.body.username);
   console.log("Tại account.route",req.body.password);
   console.log("Tại account.route",req.body.name);
-  console.log("Tại account.route",req.body.identify_card);
+  console.log("Tại account.route",req.body.identity_card);
   console.log("Tại account.route",req.body.phone_number);
   console.log("Tại account.route",req.body.email);
   console.log("Tại account.route",req.body.sex);
@@ -90,7 +90,7 @@ router.post('/register', async function(req,res){
     username: req.body.username,
     password: hash,
     name: req.body.name,
-    identify_card: req.body.identify_card,
+    identity_card: req.body.identity_card,
     phone_number: req.body.phone_number,
     email: req.body.email,
     sex: req.body.sex,
