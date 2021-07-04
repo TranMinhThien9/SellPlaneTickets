@@ -1,5 +1,5 @@
 const express = require('express');
-const brcypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const moment = require('moment');
 
 // const bodyParser = require('body-parser');
@@ -33,29 +33,31 @@ router.post('/login', async function (req, res) {
       layout: false,
       err_message: 'Invalid username or password.'
     });
-  }
-
-  // const ret = bcrypt.compareSync(req.body.password, user.password);
-  // if (ret === false) {
-  //   return res.render('vwAccount/login', {
-  //     layout: false,
-  //     err_message: 'Invalid username or password.'
-  //   });
-  // }
-
-  const ret = password === user.password;
+  };
+  const ret = bcrypt.compareSync(req.body.password, user.password);
   if (ret === false) {
     return res.render('vwAccount/login', {
       layout: false,
       err_message: 'Invalid username or password.'
     });
+  };
+ 
+  const permission = user.permission;
+  if (permission) {
+    req.session.isAuth = -1;
+    let url = '/admin/AdminLoginSucessfully';
+    req.session.authUser = user;
+    res.redirect(url);
   }
-
-  req.session.isAuth = true;
-  req.session.authUser = user;
-
-  let url = req.session.retUrl || '/';
-  res.redirect(url);
+  else {
+    req.session.isAuth = true;
+    let url = '/customer/CustomerLoginSucessfully';
+    req.session.authUser = user;
+    res.redirect(url);
+  }
+  // req.session.authUser = user;
+  // // let url = req.session.retUrl || '/';
+  // res.redirect(url);
 })
 
 router.post('/logout', async function (req, res) {
@@ -84,7 +86,7 @@ router.post('/register', async function(req,res){
   console.log("Tại account.route",req.body.permission);  
   
 
-  const hash = brcypt.hashSync(req.body.password, 10);
+  const hash = bcrypt.hashSync(req.body.password, 10);
   const date_of_birth = moment(req.body.date_of_birth, 'DD/MM/YYYY').format('YYYY-MM-DD');
   const user = {
     username: req.body.username,
