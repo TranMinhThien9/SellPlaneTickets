@@ -15,7 +15,7 @@
 
 				<div class="header-left-bottom agileinfo">
 
-					<form action="/login" method="post">
+					<form action="/account/login" method="post">
 						{% csrf_token %}
 						<input type="text" name="username" value="User name" name="name" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'User name';}" />
@@ -41,7 +41,7 @@
 
 					</div>
 					<div class="register-1">
-						<a href="/register">Đăng kí</a>
+						<a href="/account/register">Đăng kí</a>
 					</div>
 
 				</div>

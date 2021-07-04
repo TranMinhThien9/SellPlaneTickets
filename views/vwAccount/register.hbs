@@ -42,55 +42,55 @@
               <div class="form-group row">
                 <label for="txtUsername" class="col-sm-3 col-form-label text-white">Tên đăng nhập</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="text" class="form-control" id="txtUsername" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên đăng nhập';}" /> --}}
-                  <input type="text" class="form-control" id="txtUsername" name="username"/>
+                  <input type="text" class="form-control" id="txtUsername" name="username" value="Tên đăng nhập" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tên đăng nhập';}" />
+                  {{!-- <input type="text" class="form-control" id="txtUsername" name="username"/> --}}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtPassword" class="col-sm-3 col-form-label text-white">Mật khẩu</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="password" class="form-control" id="txtPassword" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật khẩu';}" /> --}}
-                  <input type="password" class="form-control" id="txtPassword" name="password"/>
+                  <input type="password" class="form-control" id="txtPassword" name="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" />
+                  {{!-- <input type="password" class="form-control" id="txtPassword" name="password"/> --}}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtConfirm" class="col-sm-3 col-form-label text-white">Xác nhận mật khẩu</label>
                 <div class="col-sm-9">
-                  <input type="password" class="form-control" id="txtConfirm"  name="confirm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật khẩu';}" />
+                  <input type="password" class="form-control" id="txtConfirm"  name="confirm" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" />
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtName" class="col-sm-3 col-form-label text-white" >Họ và Tên</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="text" class="form-control" id="txtName" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Họ và Tên';}"/> --}}
-                  <input type="text" class="form-control" id="txtName" name="name"/>
+                  <input type="text" class="form-control" id="txtName" name="name" value="Họ và Tên" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Họ và Tên';}"/>
+                  {{!-- <input type="text" class="form-control" id="txtName" name="name"/> --}}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtIdentitycard" class="col-sm-3 col-form-label text-white" >Chứng minh nhân dân/Căn cước công dân</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="text" class="form-control" id="txtIdentitycard" name="identity_card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Chứng minh nhân dân/Căn cước công dân';}" /> --}}
-                  <input type="text" class="form-control" id="txtIdentitycard" name="identity_card"/>
+                  <input type="text" class="form-control" id="txtIdentitycard" name="identity_card" value="Chứng minh nhân dân/Căn cước công dân" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Chứng minh nhân dân/Căn cước công dân';}" />
+                  {{!-- <input type="text" class="form-control" id="txtIdentitycard" name="identity_card"/> --}}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtPhonenumber" class="col-sm-3 col-form-label text-white" >Số điện thoại</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="text" class="form-control" id="txtPhonenumber" name="phone_number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Số điện thoại';}" /> --}}
-                  <input type="text" class="form-control" id="txtPhonenumber" name="phone_number"/>
+                  <input type="text" class="form-control" id="txtPhonenumber" name="phone_number" value="Số điện thoại" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Số điện thoại';}" />
+                  {{!-- <input type="text" class="form-control" id="txtPhonenumber" name="phone_number"/> --}}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="txtEmail" class="col-sm-3 col-form-label text-white" >Email</label>
                 <div class="col-sm-9">
-                  {{!-- <input type="email" class="form-control" id="txtEmail" name="email"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" /> --}}
-                  <input type="email" class="form-control" id="txtEmail" name="email"/>
+                  <input type="email" class="form-control" id="txtEmail" name="email" value="Email"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" />
+                  {{!-- <input type="email" class="form-control" id="txtEmail" name="email"/> --}}
                 </div>
               </div>
               
@@ -130,6 +130,14 @@
               <input type="submit" value="Đăng ký">
               
             </form>
+            <div class="header-left-top">
+              <div class="sign-up"> <h2>or</h2> </div>        
+            </div>
+            <a href="/account/login" class="text-white">
+              <div class="register">
+                Đăng nhập
+              </div>
+            </a>       
           </div>
         </div>
       </div>

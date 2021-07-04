@@ -2,25 +2,17 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 
-// const bodyParser = require('body-parser');
-// // create application/json parser
-// const jsonParser = bodyParser.json();
-// // create application/x-www-form-urlencoded parser
-// const urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-
-
 
 const userModel = require('../models/user.model');
-// const auth = require('../middlewares/auth.mdw');
+
 
 const router = express.Router();
 
 
 router.get('/login', async function (req, res) {
-  if (req.headers.referer) {
-    req.session.retUrl = ref;
-  }
+  // if (req.headers.referer) {
+  //   req.session.retUrl = ref;
+  // }
   res.render('vwAccount/login', {
     layout: false
   });
@@ -41,20 +33,22 @@ router.post('/login', async function (req, res) {
       err_message: 'Invalid username or password.'
     });
   };
- 
-  const permission = user.permission;
-  if (permission) {
-    req.session.isAuth = -1;
-    let url = '/admin/AdminLoginSucessfully';
-    req.session.authUser = user;
+
+  req.session.isAuth = true;
+  req.session.authUser = user;
+  req.session.permission = user.permission;
+  // const permission = user.permission;
+
+  if (user.permission) {
+    let url = '/admin';
+    // console.log('tai account.route: isAuth, isAdmin, authUser', req.session.isAuth,req.session.isAdmin,req.session.authUser);
     res.redirect(url);
   }
   else {
-    req.session.isAuth = true;
-    let url = '/customer/CustomerLoginSucessfully';
-    req.session.authUser = user;
+    let url = '/customer'; 
+    // console.log('tai account.route: isAuth, authUser',req.session.isAuth, req.session.authUser);
     res.redirect(url);
-  }
+  };
   // req.session.authUser = user;
   // // let url = req.session.retUrl || '/';
   // res.redirect(url);
@@ -63,7 +57,8 @@ router.post('/login', async function (req, res) {
 router.post('/logout', async function (req, res) {
   req.session.isAuth = false;
   req.session.authUser = null;
-  res.redirect(req.headers.referer);
+  // res.redirect(req.headers.referer);
+  res.redirect('/account/login');
 })
 
 
@@ -74,18 +69,6 @@ router.get('/register', async function (req,res) {
 }),
 
 router.post('/register', async function(req,res){
-  console.log("Tại account.route",req.body);
-  console.log("Tại account.route",req.body.username);
-  console.log("Tại account.route",req.body.password);
-  console.log("Tại account.route",req.body.name);
-  console.log("Tại account.route",req.body.identity_card);
-  console.log("Tại account.route",req.body.phone_number);
-  console.log("Tại account.route",req.body.email);
-  console.log("Tại account.route",req.body.sex);
-  console.log("Tại account.route",req.body.date_of_birth);
-  console.log("Tại account.route",req.body.permission);  
-  
-
   const hash = bcrypt.hashSync(req.body.password, 10);
   const date_of_birth = moment(req.body.date_of_birth, 'DD/MM/YYYY').format('YYYY-MM-DD');
   const user = {
@@ -100,7 +83,7 @@ router.post('/register', async function(req,res){
     permission: 0,
   }
   await userModel.add(user);
-  res.render('vwAccount/register', {
+  res.render('vwAccount/login', {
     layout: false
   });
 }),

@@ -1,10 +1,13 @@
 const express = require('express');
-const adminModel = require('../models/user.model');
+// const adminModel = require('../models/user.model');
 
 // const db = require('../utils/db');
 
 
 const router = express.Router();
+// const admin = require('../middlewares/admin.mdw');
+
+const admin = require('../middlewares/admin.mdw');
 
 
 // const bodyParser = require('body-parser');
@@ -51,16 +54,17 @@ const router = express.Router();
 // });
 
 // view admin
-router.get('/AdminLoginSucessfully', function(req, res) {
+router.get('/', admin, async function(req, res) {
+    console.log('tai account.route: isAuth, isAdmin, authUser', req.session.isAuth,req.session.isAdmin,req.session.authUser);
     res.render('vwAdmin/Admin_LoginSucessfully');
 });
-router.get('/AdminSearching', function(req, res) {
+router.get('/AdminSearching', admin, async function(req, res) {
     res.render('vwAdmin/Admin_Searching');
 });
-router.get('/AdminSelling', function (req, res){
+router.get('/AdminSelling', admin, async function (req, res){
      res.render('vwAdmin/Admin_Selling');
 })
-router.get('/AdminSellingInfo', function(req, res) {
+router.get('/AdminSellingInfo', admin, async function(req, res) {
     res.render('vwAdmin/Admin_SellingInfo');
 });
 

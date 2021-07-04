@@ -7,6 +7,7 @@ const express = require('express');
 
 // const userModel = require('../models/user.model');
 // const middleware = require('../middlewares/middleware');
+const customer = require('../middlewares/customer.mdw.js');
 
 const router = express.Router();
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -131,20 +132,21 @@ const router = express.Router();
 //     let passwordHash = await userModel.getPasswordById(id);
 //     return bcrypt.compareSync(password, passwordHash.password);
 // }
-router.get('/CustomerLoginSucessfully', function (req, res) {
+router.get('/', customer,  async function (req, res) {
+    console.log('tai account.route: isAuth, authUser',req.session.isAuth, req.session.authUser);
     res.render('vwCustomer/Customer_LoginSucessfully');
 })
 
-router.get('/CustomerBooking', function (req, res) {
+router.get('/CustomerBooking', customer, async function (req, res) {
     res.render('vwCustomer/Customer_Booking');
 })
 
 
-router.get('/CustomerSearching', function (req, res) {
+router.get('/CustomerSearching', customer, async function (req, res) {
     res.render('vwCustomer/Customer_Searching');
 })
 
-router.get('/CustomerSearchingInfo', function (req, res) {
+router.get('/CustomerSearchingInfo', customer, async function (req, res) {
     res.render('vwCustomer/Customer_SearchingInfo');
 })
 
