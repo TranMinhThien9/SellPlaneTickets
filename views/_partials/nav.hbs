@@ -3,47 +3,43 @@
     <form id="formLogout" method="POST" action="/account/logout"></form>
     <ul class="col d-flex justify-content-end navbar-nav mb-2 mb-lg-0 " id="ulNav">
       {{#if isAuth}}
-        <li class="col-2 nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            <b>{{authUser.name}}</b>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="/user/info">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                Xem và chỉnh sửa thông tin cá nhân
-              </a>
-            </li>
-            {{!-- <li>
-              <hr class="dropdown-divider">
-            </li> --}}
-            {{!-- <li>
-              <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                Đăng xuất
-              </a>
-            </li> --}}
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-danger" href="javascript: $('#formLogout').submit();">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-            Đăng xuất
-          </a>
-        </li>      
+      {{!-- <li class="d-flex justify-content-start nav-item">
+        <a class="btn btn-danger" href="javascript: $('#formLogout').submit();">
+          Trở về
+        </a>
+      </li> --}}
+      <li class="col-2 nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <b>{{authUser.name}}</b>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" href="/user/info">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              Xem và chỉnh sửa thông tin cá nhân
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-danger" href="javascript: $('#formLogout').submit();">
+          {{!-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+          Đăng xuất
+        </a>
+      </li>
       {{else}}
-        <li class="nav-item active">
-          <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/account/login">
-            Đăng nhập
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="btn btn-light" href="/account/register">
-            Đăng kí
-          </a>
-        </li>        
+      <li class="nav-item active">
+        <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/account/login">
+          Đăng nhập
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="btn btn-light" href="/account/register">
+          Đăng kí
+        </a>
+      </li>
       {{/if}}
     </ul>
   </div>

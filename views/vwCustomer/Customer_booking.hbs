@@ -1,78 +1,68 @@
-{% extends 'bookings/base.html' %}
-{% load static %}
-
-{% block title %}
-  <title>Chọn chỗ </title>
-{% endblock %}
-
-{% block body %}
-    <!--header start here-->
-    <div class="header">
-        <div class="header-main">
-            <h1>Mời chọn chỗ</h1>
-            <div class="header-bottom">
-                <div class="header-right w3agile">
-                    <div class="header-left-bottom agileinfo">
+<div class="header">
+  <div class="header-main">
+    <h1>Mời chọn chỗ</h1>
+    <div class="header-bottom">
+      <div class="header-right w3agile">
+        <div class="header-left-bottom agileinfo">
 
 
-                        <div class="container">
-                            <div class="row justify-content-end">
-                                <div class="col-4">
-                                    <a href="{% url 'logout' %}">
-                                        <button type="button" class="btn btn-danger mb-4">
-                                            Đăng xuất
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
+          <div class="container">
+            {{!-- <div class="row justify-content-end">
+              <div class="col-4">
+                <a href="{% url 'logout' %}">
+                  <button type="button" class="btn btn-danger mb-4">
+                    Đăng xuất
+                  </button>
+                </a>
+              </div>
+            </div> --}}
 
 
-                            <div class="col-12">
-                                <div class="row justify-content-between">                                    
-                                    <div class="col-12">
-                                        <div class="information">
-                                            <p>CHUYẾN BAY: {{flight.id}}</p>
-                                            <p>TỪ {{flight.departure_code}} ĐẾN {{flight.arrival_code}}</p>
-                                            <p>KHỞI HÀNH LÚC {{flight.departure_time}}</p>
-                                            <p>HẠ CÁNH LÚC {{flight.arrival_time}}</p>
-                                            <p>TỔNG SỐ CHỖ: {{flight.num_of_seats}}</p>
-                                            <p>SỐ CHỖ TRỐNG HẠNG NHẤT: {{flight.num_of_empty_fc_seats}}</p>
-                                            <P>SỐ CHỖ TRỐNG HẠNG PHỔ THÔNG: {{flight.num_of_empty_eco_seats}}</P>
-                                            <p>GÍA VÉ HẠNG NHẤT (MÃ F): {{flight.fc_price}}</p>
-                                            <p>GÍA VÉ HẠNG PHỔ THÔNG (MÃ Y): {{flight.eco_price}}</p>
-                                        </div>
-                                        <p>Chọn khoang bạn muốn:</p>
-                                        <form action="{% url 'tickets' flight.id %}" method="POST">
-                                            {% csrf_token %}
-                                            <label for="seat_code">Mã ghế:</label>
-                                            <select name="seat_code" id="seat_code">
-                                            {% for ticket in flight.tickets %}
-                                                <option value="{{ticket}}">{{ticket}}</option>
-                                            {% endfor %}                      
-                                            </select>
-                                            <input style="display: none;" type="text" name='flight_id' value="{{flight.id}}">
-                                            <input type="submit" value="Đặt vé">
-										</form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-
-                        </div>
-                    </div>
+            <div class="col-12">
+              <div class="row justify-content-between">
+                <div class="col-12">
+                  <div class="information">
+                    <p>CHUYẾN BAY: {{flight.id}}</p>
+                    <p>TỪ {{flight.departure_code}} ĐẾN {{flight.arrival_code}}</p>
+                    <p>KHỞI HÀNH LÚC {{flight.departure_time}}</p>
+                    <p>HẠ CÁNH LÚC {{flight.arrival_time}}</p>
+                    <p>TỔNG SỐ CHỖ: {{flight.num_of_seats}}</p>
+                    <p>SỐ CHỖ TRỐNG HẠNG NHẤT: {{flight.num_of_empty_fc_seats}}</p>
+                    <P>SỐ CHỖ TRỐNG HẠNG PHỔ THÔNG: {{flight.num_of_empty_eco_seats}}</P>
+                    <p>GÍA VÉ HẠNG NHẤT (MÃ F): {{flight.fc_price}}</p>
+                    <p>GÍA VÉ HẠNG PHỔ THÔNG (MÃ Y): {{flight.eco_price}}</p>
+                  </div>
+                  <p>Chọn khoang bạn muốn:</p>
+                  <form action="{% url 'tickets' flight.id %}" method="POST">
+                    {% csrf_token %}
+                    <label for="seat_code">Mã ghế:</label>
+                    <select name="seat_code" id="seat_code">
+                      {% for ticket in flight.tickets %}
+                      <option value="{{ticket}}">{{ticket}}</option>
+                      {% endfor %}
+                    </select>
+                    <input style="display: none;" type="text" name='flight_id' value="{{flight.id}}">
+                    <input type="submit" value="Đặt vé">
+                  </form>
                 </div>
+              </div>
             </div>
+
+
+
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-{% endblock %}
+  </div>
+</div>
+</div>
+<div class="copyright">
+  <p> Copyright © 2021 All rights reserved | Design by TKPM</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

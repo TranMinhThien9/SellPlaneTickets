@@ -2,79 +2,80 @@
 {% load static %}
 
 {% block title %}
-  <title>Bán vé</title>
+<title>Bán vé</title>
 {% endblock %}
 
 {% block body %} --}}
 
-  <!--header start here-->
-  <div class="header">
-    <div class="header-main">
-        <h1>Hệ thống bán vé máy bay</h1>
-      <div class="header-bottom">
-        <div class="header-right w3agile">
-          <div class="header-left-bottom agileinfo">
-          
-            <div class="container">
-              <div class="row justify-content-end">
-                <div class="col-2">
-                  <a href="{% url 'logout' %}">
-                    <button type="button" class="btn btn-danger mb-4">
-                      Đăng xuất
-                    </button>
-                  </a>
-                </div>
-              </div>
-              
-                <div class="col">
-                  <form action= "/admin/AdminSelling" method="post">
-                    {{!-- {% csrf_token %} --}}
-                      <div class="col text-white text-center font-italic mb-5" style="font-size: 25px;"><u>Bán vé máy bay</u></div>                      
-                      
-                      <div class="form-group row">
-                        <label for="flight_id" class="col-sm-3 col-form-label text-white mt-5">Nhập mã chuyến bay</label>
-                        <div class="col-sm-9">
-                          <input type="text" name="flight_id" class="form-control mt-5" value="" id="flight_id" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = '';}" />
-                        </div>
-                      </div>
+<!--header start here-->
+<div class="header">
+  <div class="header-main">
+    <h1>Hệ thống bán vé máy bay</h1>
+    <div class="header-bottom">
+      <div class="header-right w3agile">
+        <div class="header-left-bottom agileinfo">
 
-
-                      <div class="form-group row">
-                        <label for="seat_code" class="col-sm-3 col-form-label text-white mt-5">Mã ghế</label>
-                        <div class="col-sm-9">
-                          <input type="text" name="seat_code" class="form-control mt-5" id="seat_code" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = '';}" />
-                        </div>
-                      </div>
-                      <input type="submit" value="Tra cứu">
-                    </form>
-                </div>
-
-                </div>
-                <div class="row justify-content-between">
-                  <a href="/index">
-                    <button type="button" class="btn btn-danger mt-3">
-                      Trở về
-                    </button>
-                  </a>
-                </div>
-
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-2">
+                <a href="{% url 'logout' %}">
+                  <button type="button" class="btn btn-danger mb-4">
+                    Đăng xuất
+                  </button>
+                </a>
               </div>
             </div>
+
+            <div class="col">
+              <form action="/admin/AdminSelling" method="post">
+                {{!-- {% csrf_token %} --}}
+                <div class="col text-white text-center font-italic mb-5" style="font-size: 25px;"><u>Bán vé máy bay</u>
+                </div>
+
+                <div class="form-group row">
+                  <label for="flight_id" class="col-sm-3 col-form-label text-white mt-5">Nhập mã chuyến bay</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="flight_id" class="form-control mt-5" value="" id="flight_id"
+                      onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" />
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="seat_code" class="col-sm-3 col-form-label text-white mt-5">Mã ghế</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="seat_code" class="form-control mt-5" id="seat_code"
+                      onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" />
+                  </div>
+                </div>
+                <input type="submit" value="Tra cứu">
+              </form>
+            </div>
+
           </div>
+          <div class="row justify-content-between">
+            <a href="/index">
+              <button type="button" class="btn btn-danger mt-3">
+                Trở về
+              </button>
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
+</div>
+</div>
+</div>
+<div class="copyright">
+  <p> Copyright © 2021 All rights reserved | Design by TKPM</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 {{!-- {% endblock %} --}}
