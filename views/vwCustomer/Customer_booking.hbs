@@ -16,13 +16,13 @@
             <p>GÍA VÉ HẠNG PHỔ THÔNG (MÃ Y): {{flight.eco_price}}</p>
           </div>
           <p>Chọn khoang bạn muốn:</p>
-          <form action="{% url 'tickets' flight.id %}" method="POST">
-            {% csrf_token %}
+          <form action="" method="POST">
+
             <label for="seat_code">Mã ghế:</label>
             <select name="seat_code" id="seat_code">
-              {% for ticket in flight.tickets %}
+
               <option value="{{ticket}}">{{ticket}}</option>
-              {% endfor %}
+
             </select>
             <input style="display: none;" type="text" name='flight_id' value="{{flight.id}}">
             <input type="submit" value="Đặt vé">
@@ -34,7 +34,7 @@
       <div class="row justify-content-start">
         <div class="">
           <div class="col">
-            <a href="/customer/CustomerBooking">
+            <a href="/customer">
               <button type="button" class="btn btn-danger mt-5">
                 Trở về
               </button>

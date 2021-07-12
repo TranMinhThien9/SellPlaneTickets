@@ -56,32 +56,19 @@ module.exports = {
     }
   },
 
-  // FlightAirportPlane() {
-  //   const sql = `
-  //   SELECT  f.id, f.departure_time, f.arrival_time, f.duration, f.plane_id, f.capacity, p.num_of_fc_seats, p.num_of_eco_seats,
-  //   f.first_class_price, f.eco_class_price, 
-  //   f.departure_airport_id, a1.name as 'name_departure_airport',f.arrival_airport_id, a2.name as 'name_arrival_airport'
-  //   FROM flights f 
-  //   JOIN airports a1 ON f.departure_airport_id = a1.id
-  //   JOIN airports a2 ON f.arrival_airport_id = a2.id
-  //   JOIN planes p ON f.plane_id = p.id
-  //   ORDER BY f.id;
-  //   `;
-  //   return db.load(sql);
-  // },
-
-  add(entity) {
-    return db.add(entity, TBL_FLIGHTS)
+  FlightAirportPlane() {
+    const sql = `
+    SELECT  f.id, f.departure_time, f.arrival_time, f.duration, f.plane_id, f.capacity, p.num_of_fc_seats, p.num_of_eco_seats,
+    f.first_class_price, f.eco_class_price, 
+    f.departure_airport_id, a1.name as 'name_departure_airport',f.arrival_airport_id, a2.name as 'name_arrival_airport'
+    FROM flights f 
+    JOIN airports a1 ON f.departure_airport_id = a1.id
+    JOIN airports a2 ON f.arrival_airport_id = a2.id
+    JOIN planes p ON f.plane_id = p.id
+    ORDER BY f.id;
+    `;
+    return db.load(sql);
   },
 
-  del(entity) {
-    const condition = { CatID: entity.CatID };
-    return db.del(condition, TBL_FLIGHTS);
-  },
 
-  patch(entity) {
-    const condition = { CatID: entity.CatID };
-    delete entity.CatID;
-    return db.patch(entity, condition, TBL_FLIGHTS);
-  }
 };

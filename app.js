@@ -21,8 +21,11 @@ app.use('/public', express.static('public'));
 
 require('./middlewares/view.mdw')(app);
 require('./middlewares/session.mdw')(app);
+
 require('./middlewares/auth.mdw')(app);
 require('./middlewares/flight.mdw')(app);
+require('./middlewares/ticket.mdw')(app);
+
 require('./middlewares/routes.mdw')(app);
 require('./middlewares/error.mdw')(app);
 

@@ -1,11 +1,3 @@
-{{!-- {% extends 'bookings/base.html' %}
-{% load static %}
-
-{% block title %}
-<title>Thông tin vé</title>
-{% endblock %}
-
-{% block body %} --}}
 <!--header start here-->
 <div class="header">
   <div class="header-main">
@@ -15,47 +7,34 @@
         <div class="header-left-bottom agileinfo">
 
           <div class="container">
-            {{!-- <div class="row justify-content-end">
-              <div class="col-2">
-                <a href="{% url 'logout' %}">
-                  <button type="button" class="btn btn-danger mb-4">
-                    Đăng xuất
-                  </button>
-                </a>
-              </div>
-            </div> --}}
-
-
-            <div class="row">
-              <div class="col-sm">
-                <div class="text-white mb-5">Khách hàng: {{passenger_name}}</div>
-                <div class="text-white mb-5">Mã Chuyến bay: {{flight_id}}</div>
-                <div class="text-white mb-5">Sân bay đi: {{departure}}</div>
-                <div class="text-white mb-5">Sân bay đến: {{arrival}}</div>
-                <div class="text-white mb-5">Ngày bay: {{departure_date}}</div>
-                <div class="text-white mb-5">Giờ bay: {{departure_time}}</div>
-                <div class="text-white mb-5">Giờ đến: {{arrival_time}}</div>
-              </div>
-              <div class="col-sm">
-                <div class="text-white mb-5">Loại vé: {% if ticket_type == 'F' %}Hạng nhất{% else %}Hạng phổ thông{%
-                  endif %}</div>
-                <div class="text-white mb-5">Giá vé: {{ticket_price}}</div>
-              </div>
+            <div class="col">
+              <form class="row" method="post">
+                <div class="text-white mb-5">Khách hàng: {{tickets.name_customer}}</div>
+                <div class="text-white mb-5">Mã Chuyến bay: {{tickets.flight_id}}</div>
+                <div class="text-white mb-5">Sân bay đi: {{tickets.name_departure_airport}}</div>
+                <div class="text-white mb-5">Sân bay đến: {{tickets.name_arrival_airport}}</div>
+                <div class="text-white mb-5">Thời gian bay: {{tickets.departure_time}}</div>
+                <div class="text-white mb-5">Thời gian đến: {{tickets.arrival_time}}</div>
+                <label class="text-white mb-2" for="departure">Loại vé:</label>
+                <select class="mb-3" name="departure_airport_id">
+                  <option value="{{first_class_price}}">Giá vé hạng nhất: {{tickets.first_class_price}}</option>
+                  <option value="{{eco_class_price}}">Giá vé hạng phổ thông: {{tickets.eco_class_price}}</option>
+                </select>
+                <input type="submit" value="Bán vé">
+              </form>
             </div>
 
           </div>
-          <div class="row justify-content-between">
-            <a href="/admin">
-              <button type="button" class="btn btn-danger mt-3">
-                Trở về
-              </button>
-            </a>
-
-            <a href="/index">
-              <button type="button" class="btn btn-danger mt-3 ml-5">
-                Bán
-              </button>
-            </a>
+          <div class="row justify-content-start">
+            <div class="">
+              <div class="col">
+                <a href="/admin">
+                  <button type="button" class="btn btn-danger mt-5">
+                    Trở về
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
