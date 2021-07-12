@@ -1,11 +1,5 @@
-{% extends 'bookings/base.html' %}
-{% load static %}
 
-{% block title %}
-<title>Kết quả tra cứu</title>
-{% endblock %}
 
-{% block body %}
 <!--header start here-->
 <div class="header">
   <div class="header-main">
@@ -16,18 +10,9 @@
 
 
           <div class="container">
-            {{!-- <div class="row justify-content-end">
-              <div class="col-4">
-                <a href="{% url 'logout' %}">
-                  <button type="button" class="btn btn-danger mb-4">
-                    Đăng xuất
-                  </button>
-                </a>
-              </div>
-            </div> --}}
-            <div class="col-10">
-              {% if flights %}
-              <table class="table table-bordered table-dark">
+            <div class="row justify-content-center">
+              {{#if match_flight}}             
+              <table class="w-auto table table-bordered table-dark">
                 <thead>
                   <tr>
                     <th scope="rowgroup" colspan="5" class="text-center">CHUYENBAY</th>
@@ -44,34 +29,33 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for flight in flights %}
+                  {{#each flights}}
                   <tr>
-                    <th scope="row" class="text-center">{{flight.id}}({{flight.departure_code}} ->
-                      {{flight.arrival_code}})</th>
-                    <td class="text-center">{{flight.departure_time}}</td>
-                    <td class="text-center">{{flight.arrival_time}}</td>
-                    <td class="text-center">{{flight.num_of_seats}}</td>
-                    <td class="text-center">{{flight.num_of_fc_seats}}</td>
-                    <td class="text-center">{{flight.num_of_empty_fc_seats}}</td>
-                    <td class="text-center">{{flight.num_of_eco_seats}}</td>
-                    <td class="text-center">{{flight.num_of_empty_eco_seats}}</td>
-                    <td style="color:cornflowerblue" class="text-center"><a href="{% url 'flight' flight.id %}">Chi
+                    <th class="text-center">{{id}} ({{name_departure_airport}}->{{name_arrival_airport}})</th>
+                    <td class="text-center">{{departure_time}}</td>
+                    <td class="text-center">{{arrival_time}}</td>
+                    <td class="text-center">{{capacity}}</td>
+                    <td class="text-center">{{num_of_fc_seats}}</td>
+                    <td class="text-center">{{num_of_empty_fc_seats}}</td>
+                    <td class="text-center">{{num_of_eco_seats}}</td>
+                    <td class="text-center">{{num_of_empty_eco_seats}}</td>
+                    <td style="color:cornflowerblue" class="text-center"><a href="{% url 'flights' flights.id %}">Chi
                         tiết</a></td>
                   </tr>
-                  {% endfor %}
+                    
+                  {{/each}}
 
                 </tbody>
               </table>
-              {% else %}
-              <h3 style="color: #fff">Không có chuyến bay nào phù hợp.</h3>
-              {% endif %}
+              {{else}}
+               <h3 style="color: #fff">Không có chuyến bay nào phù hợp.</h3>
+              {{/if}}
 
             </div>
 
 
-            <div class="row justify-content-between">
-              <div class="col-4"></div>
-              <div class="col-4">
+            <div class="row justify-content-start">
+              <div class="">
                 <div class="col">
                   <a href="/customer/CustomerSearching">
                     <button type="button" class="btn btn-danger mt-5">
@@ -89,4 +73,3 @@
   </div>
 </div>
 </div>
-
